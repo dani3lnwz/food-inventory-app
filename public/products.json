@@ -1,0 +1,56 @@
+[
+  {
+    "_id": 1,
+    "name": "Strawberry",
+    "price": "100",
+    "description": "Box of farm fresh strawberries. All Imported.",
+    "img": "https://i.ibb.co/cTdFtDR/f5.png",
+    "quantity": "10",
+    "supplyName": "John Doe"
+  },
+  {
+    "_id": 2,
+    "name": "Fresh Watermelon",
+    "price": "120",
+    "description": "Box of Local all fresh watermelons. All are premium quality.",
+    "img": "https://i.ibb.co/WxdvkSW/f10.png",
+    "quantity": "5",
+    "supplyName": "Johnny Depp"
+  },
+  {
+    "_id": 3,
+    "name": "Mountain Banana",
+    "price": "50",
+    "description": "Natural and Fresh Mountain Banana's. So sweet in taste. Local product.",
+    "img": "https://i.ibb.co/s5ZmH24/f7.png",
+    "quantity": "10",
+    "supplyName": "Ned Stark"
+  },
+  {
+    "_id": 4,
+    "name": "Strawberry Choclotey Icecream",
+    "price": "150",
+    "description": "Box of Premium quality and healthy Ice Creams for everyone. All are imported.",
+    "img": "https://i.ibb.co/FBnmHkr/i1.png",
+    "quantity": "15",
+    "supplyName": "Daenerys Targariyan"
+  },
+  {
+    "_id": 5,
+    "name": "Pepsi",
+    "price": "50",
+    "description": "Box of USA imported pepsi. Only prov_iding cans at this moment.",
+    "img": "https://i.ibb.co/LZjsJDT/d2.png",
+    "quantity": "20",
+    "supplyName": "Heisenberg"
+  },
+  {
+    "_id": 6,
+    "name": "Red Bull",
+    "price": "80",
+    "description": "Premium quality USA imported Red Bull energy drink.",
+    "img": "https://i.ibb.co/YhH2SSC/d1.png",
+    "quantity": "12",
+    "supplyName": "Jessy Pinkman"
+  }
+]
