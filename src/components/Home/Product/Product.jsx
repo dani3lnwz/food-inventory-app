@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { name, price, description, img, quantity, supplyName } = product;
+  const { name, price, description, img, quantity, supplyName, _id } = product;
+
+  const navigate = useNavigate();
+  const navigateToInventory = (id) => {
+    navigate(`/inventory/${id}`);
+  };
 
   return (
     <div className="card rounded-xl w-96 bg-base-100 shadow-xl mb-4 m-0">
@@ -16,8 +22,8 @@ const Product = ({ product }) => {
         <h6 className="font-semibold">Supplier: {supplyName}</h6>
       </div>
       <div className="grid justify-center mb-3">
-        <button className="btn bg-blue-500 text-white hover:bg-blue-700 p-2 px-4 rounded-full">
-          Buy Now
+        <button onClick={() => navigateToInventory(_id)}className="btn bg-blue-500 text-white hover:bg-blue-700 p-2 px-4 rounded-full">
+          Update
         </button>
       </div>
     </div>
