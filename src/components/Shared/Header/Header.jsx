@@ -54,16 +54,6 @@ const Header = () => {
            </li>
            <li>
              <Link
-               to="/"
-               aria-label="Our product"
-               title="Our product"
-               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-             >
-               Features
-             </Link>
-           </li>
-           <li>
-             <Link
                to="/blog"
                aria-label="Product pricing"
                title="Product pricing"
@@ -82,6 +72,40 @@ const Header = () => {
                About us
              </Link>
            </li>
+           {user && (
+             <>
+               <li>
+                 <Link
+                   to="/managefood"
+                   aria-label="About us"
+                   title="About us"
+                   className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                 >
+                   Manage Item
+                 </Link>
+               </li>
+               <li>
+                 <Link
+                   to="/addfood"
+                   aria-label="About us"
+                   title="About us"
+                   className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                 >
+                   Add Item
+                 </Link>
+               </li>
+               <li>
+                 <Link
+                   to="/myitem"
+                   aria-label="About us"
+                   title="About us"
+                   className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                 >
+                   My Items
+                 </Link>
+               </li>
+             </>
+           )}
          </ul>
          {user ? (
            <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -193,16 +217,6 @@ const Header = () => {
                      </li>
                      <li>
                        <Link
-                         to="/"
-                         aria-label="Our product"
-                         title="Our product"
-                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                       >
-                         Features
-                       </Link>
-                     </li>
-                     <li>
-                       <Link
                          to="/blog"
                          aria-label="Product pricing"
                          title="Product pricing"
@@ -221,6 +235,40 @@ const Header = () => {
                          About us
                        </Link>
                      </li>
+                     {user && (
+                       <>
+                         <li>
+                           <Link
+                             to="/managefood"
+                             aria-label="About us"
+                             title="About us"
+                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                           >
+                             Manage Item
+                           </Link>
+                         </li>
+                         <li>
+                           <Link
+                             to="/addfood"
+                             aria-label="About us"
+                             title="About us"
+                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                           >
+                             Add Item
+                           </Link>
+                         </li>
+                         <li>
+                           <Link
+                             to="/myitem"
+                             aria-label="About us"
+                             title="About us"
+                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                           >
+                             My Items
+                           </Link>
+                         </li>
+                       </>
+                     )}
                      <li>
                        {user ? (
                          <button
