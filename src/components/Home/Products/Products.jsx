@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link} from "react-router-dom";
 import Product from "../Product/Product";
 
 const Products = () => {
@@ -12,6 +13,7 @@ const Products = () => {
       });
   }, []);
 
+
   return (
     <div className="container mt-4" id="services">
       <div className="row text-center">
@@ -23,6 +25,9 @@ const Products = () => {
             <Product key={product._id} product={product}></Product>
           ))}
         </div>
+        <Link to="/managefood" className="btn w-50 mx-auto bg-purple-500 text-white hover:bg-purple-700 p-2 px-4 rounded-full">
+          Manage Inventories
+        </Link>
       </div>
     </div>
   );

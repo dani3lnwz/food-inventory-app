@@ -12,6 +12,8 @@ import About from "./components/About/About";
 import Blog from "./components/Blog/Blog";
 import RequireAuth from "./components/Login/RequireAuth/RequireAuth";
 import Inventory from "./components/Inventory/Inventory";
+import AddFood from "./components/AddFood/AddFood";
+import ManageInventory from "./components/ManageInventory/ManageInventory";
 
 function App() {
   return (
@@ -25,6 +27,22 @@ function App() {
           element={
             <RequireAuth>
               <Inventory></Inventory>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/managefood"
+          element={
+            <RequireAuth>
+              <ManageInventory></ManageInventory>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/addfood"
+          element={
+            <RequireAuth>
+              <AddFood></AddFood>
             </RequireAuth>
           }
         ></Route>
