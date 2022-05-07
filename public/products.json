@@ -52,5 +52,14 @@
     "img": "https://i.ibb.co/YhH2SSC/d1.png",
     "quantity": "12",
     "supplyName": "Jessy Pinkman"
+  },
+  {
+    "_id": 7,
+    "name": "Red Bull",
+    "price": "80",
+    "description": "Premium quality USA imported Red Bull energy drink.",
+    "img": "https://i.ibb.co/YhH2SSC/d1.png",
+    "quantity": "12",
+    "supplyName": "Jessy Pinkman"
   }
 ]
