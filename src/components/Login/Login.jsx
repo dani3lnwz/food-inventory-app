@@ -9,7 +9,9 @@ import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SocialLogin from "./SocialLogin/SocialLogin";
-import './Login.css'
+import "./Login.css";
+import Loading from "../Shared/Loading/Loading";
+import axios from "axios";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -33,12 +35,9 @@ const Login = () => {
     );
   }
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-      toast.success("Yay Congratulations 🎉");
-    }
-  }, [user]);
+  // if(loading || sending){
+  //   return <Loading></Loading>
+  // }
 
   const handleSignIn = async (event) => {
     event.preventDefault();
@@ -46,7 +45,10 @@ const Login = () => {
     const password = passwordRef.current.value;
 
     await signInWithEmailAndPassword(email, password);
-    event.target.reset();
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    // event.target.reset();
+    navigate(from, { replace: true });
   };
 
   const resetPassword = async () => {
@@ -58,6 +60,13 @@ const Login = () => {
       toast.error("Please Enter Your Email address");
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      // navigate(from, { replace: true });
+      toast.success("Yay Congratulations 🎉");
+    }
+  }, [user]);
 
   const navigateReg = (event) => {
     navigate("/register");

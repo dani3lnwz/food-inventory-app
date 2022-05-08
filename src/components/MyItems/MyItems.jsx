@@ -15,7 +15,11 @@ const MyItems = () => {
     const getItems = async () => {
       const email = user.email;
       const url = `http://localhost:5000/myitem?email=${email}`;
-      const { data } = await axios.get(url);
+      const { data } = await axios.get(url, {
+        headers: {
+          auhtorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       setItems(data);
     };
     getItems();
@@ -33,7 +37,7 @@ const MyItems = () => {
           console.log(data);
           const remaining = items.filter((item) => item._id !== id);
           setItems(remaining);
-          toast.success('Item Deleted')
+          toast.success("Item Deleted");
         });
     }
   };

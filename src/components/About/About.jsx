@@ -5,7 +5,7 @@ import img from '../../img/logo.png'
 const About = () => {
    return (
      <>
-       <section className="grid grid-cols-2 mt-4 container ml-16">
+       <section className="grid grid-cols-2 mt-4 container ml-16 sm:grid-cols-1">
          <div className="font-mono text-3xl font-semibold mt-20">
            <h1 className="text-6xl text-pink-500">Khai-Dai.Com</h1>
            <h2>Online Platform For Best Food Stocks</h2>
@@ -29,7 +29,7 @@ const About = () => {
            </Button>
          </div>
          <div className="">
-           <img className="w-50 m-0" src={img} alt="" />
+           <img className="w-50 sm:mt-3" src={img} alt="" />
          </div>
        </section>
      </>
