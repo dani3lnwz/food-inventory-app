@@ -1,22 +1,38 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const AddFood = () => {
+const AddFood = (e) => {
+  const [user] = useAuthState(auth)
+  const {email} = user;
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
     const url = `http://localhost:5000/food`;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
+    axios.post(url, data)
+    .then(response => {
+      const {data} = response;
+      console.log(data);
+      if(data.insertedId){
+        toast.success('Your Item is added')
+        e.target.reset();
+      }
     })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
+    
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     console.log(result);
+    //   });
   };
 
   return (
@@ -46,6 +62,13 @@ const AddFood = () => {
           placeholder="Quantity"
           type="number"
           {...register("quantity")}
+        />
+        <input
+          className="mb-2 border"
+          placeholder="Supplier Name"
+          type="text"
+          value={email}
+          {...register("email")}
         />
         <input
           className="mb-2 border"

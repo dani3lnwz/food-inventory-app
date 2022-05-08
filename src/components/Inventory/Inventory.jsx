@@ -27,9 +27,9 @@ const Inventory = () => {
     const reQuantity = parseInt(e.target.quantity.value);
     if (reQuantity >= 1) {
       const newQuantity = reQuantity + parseInt(quantity);
-      console.log(reQuantity, quantity);
+      // console.log(reQuantity, quantity);
 
-      console.log(newQuantity);
+      // console.log(newQuantity);
       const url = `http://localhost:5000/update/${inventoryId}`;
       try {
         const { data } = await axios.put(url, { newQuantity });

@@ -1,9 +1,25 @@
-import React from "react";
+import { async } from "@firebase/util";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import useProducts from "../../hooks/useProducts";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
-const ManageInventory = () => {
-  const [products, setProducts] = useProducts();
+const MyItems = () => {
+  const [user] = useAuthState(auth);
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const getItems = async () => {
+      const email = user.email;
+      const url = `http://localhost:5000/myitem?email=${email}`;
+      const { data } = await axios.get(url);
+      setItems(data);
+    };
+    getItems();
+  }, []);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
@@ -15,15 +31,17 @@ const ManageInventory = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          const remaining = products.filter((product) => product._id !== id);
-          setProducts(remaining);
+          const remaining = items.filter((item) => item._id !== id);
+          setItems(remaining);
+          toast.success('Item Deleted')
         });
     }
   };
+
   return (
     <div>
       <h2 className="text-2xl font-semibold text-green-600 text-center mb-3">
-        Manage Inventory
+        My Items
       </h2>
       <div className="mx-auto pb-8 w-full max-w-7xl overflow-x-auto">
         <table className="px-4 min-w-full rounded-md border border-gray-200 overflow-hidden">
@@ -70,34 +88,34 @@ const ManageInventory = () => {
 
           {/* :TABLE BODY */}
           <tbody className="">
-            {products.map((product, index) => (
+            {items.map((item, index) => (
               <tr
-                key={product._id}
+                key={item._id}
                 className={`${
                   index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
                 } whitespace-nowrap`}
               >
                 {/* ::User Name */}
                 <td className="py-3 px-4 text-base text-gray-700 font-semibold">
-                  {product.name}
+                  {item.name}
                 </td>
                 {/* ::Supplier NAme */}
                 <td className="py-3 px-4 text-base text-gray-500 font-medium">
-                  {product.supplyName}
+                  {item.supplyName}
                 </td>
                 {/* ::Price */}
                 <td className="py-3 px-4 text-base text-gray-500 font-medium">
-                  {product.price}
+                  {item.price}
                 </td>
                 {/* ::Quantity */}
                 <td className="py-3 px-4 text-base text-gray-500 font-medium">
-                  {product.quantity}
+                  {item.quantity}
                 </td>
                 {/* ::Action Buttons */}
                 <td className="py-3 px-4 flex justify-around items-center space-x-6 text-base text-gray-700 font-medium">
                   {/* :::delete button */}
                   <button
-                    onClick={() => handleDelete(product._id)}
+                    onClick={() => handleDelete(item._id)}
                     type="button"
                     className="text-white px-2 rounded-xl font-semibold hover:bg-red-700 bg-red-500 text-base"
                   >
@@ -119,4 +137,5 @@ const ManageInventory = () => {
     </div>
   );
 };
-export default ManageInventory;
+
+export default MyItems;
