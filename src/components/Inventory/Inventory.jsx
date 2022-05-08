@@ -8,20 +8,40 @@ const Inventory = () => {
 
   const [food, setFood] = useState({});
 
-  const {quantity, name} = food;
+  const { quantity, name } = food;
 
   useEffect(() => {
-        (async () => {
-            const url = `http://localhost:5000/food/${inventoryId}`;
-            try {
-                const { data } = await axios.get(url)
-                setFood(data)
-            }
-            catch (error) {
-                console.log(error);
-            }
-        })()
-    }, [inventoryId, food])
+    (async () => {
+      const url = `http://localhost:5000/food/${inventoryId}`;
+      try {
+        const { data } = await axios.get(url);
+        setFood(data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [inventoryId, food]);
+
+  const handleRestock = async (e) => {
+    e.preventDefault();
+    const reQuantity = parseInt(e.target.quantity.value);
+    if (reQuantity >= 1) {
+      const newQuantity = reQuantity + parseInt(quantity);
+      console.log(reQuantity, quantity);
+
+      console.log(newQuantity);
+      const url = `http://localhost:5000/update/${inventoryId}`;
+      try {
+        const { data } = await axios.put(url, { newQuantity });
+        if (data.modifiedCount === 1 || data.matchedCount === 1) {
+          toast.success(`Successfully restock`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    e.target.reset();
+  };
 
   const handleDelivery = () => {
     (async () => {
@@ -53,11 +73,14 @@ const Inventory = () => {
         </div>
       </div>
       <div className="flex flex-col w-50 mx-auto">
-        <button onClick={handleDelivery} className="btn bg-orange-500 text-white font-semibold rounded-full">
+        <button
+          onClick={handleDelivery}
+          className="btn bg-orange-500 text-white font-semibold rounded-full"
+        >
           Deliver
         </button>
         <br />
-        <form className="flex flex-col" >
+        <form className="flex flex-col" onSubmit={handleRestock}>
           <input
             className="m-1 rounded-md border-2 border-green-900"
             type="number"
