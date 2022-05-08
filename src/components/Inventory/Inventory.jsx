@@ -1,19 +1,42 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
 
   const [food, setFood] = useState({});
 
+  const {quantity, name} = food;
+
   useEffect(() => {
-    const url = `http://localhost:5000/food/${inventoryId}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setFood(data);
-      });
-  }, []);
+        (async () => {
+            const url = `http://localhost:5000/food/${inventoryId}`;
+            try {
+                const { data } = await axios.get(url)
+                setFood(data)
+            }
+            catch (error) {
+                console.log(error);
+            }
+        })()
+    }, [inventoryId, food])
+
+  const handleDelivery = () => {
+    (async () => {
+      const newQuantity = { quantity };
+      const url = `http://localhost:5000/food/${inventoryId}`;
+      try {
+        const { data } = await axios.put(url, newQuantity);
+        if (data.modifiedCount) {
+          toast.success("Delivered SuccessFully");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  };
 
   return (
     <>
@@ -28,6 +51,26 @@ const Inventory = () => {
           <h5 className="font-semibold">Quantity: {food.quantity}</h5>
           <h6 className="font-semibold">Supplier: {food.supplyName}</h6>
         </div>
+      </div>
+      <div className="flex flex-col w-50 mx-auto">
+        <button onClick={handleDelivery} className="btn bg-orange-500 text-white font-semibold rounded-full">
+          Deliver
+        </button>
+        <br />
+        <form className="flex flex-col" >
+          <input
+            className="m-1 rounded-md border-2 border-green-900"
+            type="number"
+            placeholder="Restock Quantity"
+            name="quantity"
+            id=""
+          />
+          <input
+            className="bg-green-600 text-slate-100 rounded-lg w-15 d--block p-1.5 mx-auto px-3 rounded-full"
+            type="submit"
+            value="Restock"
+          />
+        </form>
       </div>
       <div className="w-50 ml-4">
         <Link

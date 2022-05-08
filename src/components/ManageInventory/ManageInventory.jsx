@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
-import FoodTable from '../FoodTable/FoodTable';
+
 const ManageInventory = () => {
   const [products, setProducts, index] = useProducts();
 
@@ -72,7 +72,7 @@ const ManageInventory = () => {
              {/* :TABLE BODY */}
              <tbody className="">
                <tr
-                 key={product.name}
+                 key={product._id}
                  className={`${
                    index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
                  } whitespace-nowrap`}
