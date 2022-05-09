@@ -5,7 +5,7 @@
 ## [Live Website-2]()
 
 ### Description
- Khai-Dai.Com founded in 2022, is a onliner Food Inventory platform in Bangladesh. The company offers its services via a website and mobile app for Android and iOS. Khai-Dai.Com started as an online food service, and has since gone on to redefine supply chains, ease commodity trade, support refugee camps, and reduce food wastage by building technology into the supply chain, all the way back to the farms
+ This inventory website is made with react, firebase, mongodb, express. this is a full responsive website. This website implements full CRUD operation. all buttons are functional here.
 
 ### Features Of My Site
 
@@ -33,7 +33,7 @@
 - Manage Inventory
    - Here Items can be deleted by the user
    - Here it will show all the items
-- Responsive Homepage
+- Full Responsive Website
 
 ### Technology Used
 
