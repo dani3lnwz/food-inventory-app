@@ -45,10 +45,10 @@ const Banner = () => {
      >
        <div className="py-2 flex-1 flex flex-col items-start justify-center gap-6">
          <div className="flex items-center gap-2 justify-center bg-orange-100 px-4 py-1 rounded-full">
-           <div className="w-8 h-8 bg-white rounded-full overflow-hidden drop-shadow-xl">
+           <div className="w-8 h-8 bg-white rounded-full  drop-shadow-xl hidden lg:block md:block">
              <img
                src={Delivery}
-               className="w-full h-full object-contain"
+               className="w-full h-full object-contain "
                alt="delivery"
              />
            </div>

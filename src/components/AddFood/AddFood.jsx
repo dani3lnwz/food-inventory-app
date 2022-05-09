@@ -16,8 +16,8 @@ const AddFood = (e) => {
       const { data } = response;
       console.log(data);
       if (data.insertedId) {
-        toast.success("Your Item is added");
         e.target.reset();
+        toast.success("Your Item is added");
       }
     });
 

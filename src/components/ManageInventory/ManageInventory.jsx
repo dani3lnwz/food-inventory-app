@@ -22,8 +22,12 @@ const ManageInventory = () => {
   };
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-green-600 text-center mb-3">
+      <h2 className="text-2xl font-semibold text-green-600 text-center">
         Manage Inventory
+      </h2>
+      <br />
+      <h2 className="text-2xl font-semibold text-green-600 text-center mb-2">
+        Total Product: {products.length}
       </h2>
       <div className="mx-auto pb-8 w-full max-w-7xl overflow-x-auto">
         <table className="px-4 min-w-full rounded-md border border-gray-200 overflow-hidden">

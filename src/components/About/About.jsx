@@ -5,7 +5,7 @@ import img from '../../img/logo.png'
 const About = () => {
    return (
      <>
-       <section className="grid grid-cols-2 mt-4 container ml-16 sm:grid-cols-1">
+       <section className="grid container sm:grid-cols-1 md:grid-cols-2">
          <div className="font-mono text-3xl font-semibold mt-20">
            <h1 className="text-6xl text-pink-500">Khai-Dai.Com</h1>
            <h2>Online Platform For Best Food Stocks</h2>
@@ -20,7 +20,7 @@ const About = () => {
              back to the farms.
            </p>
            <br />
-           <Button className="bg-blue-500 hover:text-blue-700 text-white font-bold py-2 px-4 rounded-full text-xl">
+           <Button className="bg-blue-500 hover:text-blue-700 text-white font-bold mb-4 py-2 px-4 rounded-full text-xl">
              <a
                target="_blank"
                href="https://www.linkedin.com/in/hassan-mehdi11/"
@@ -28,8 +28,8 @@ const About = () => {
              Explore More
            </Button>
          </div>
-         <div className="">
-           <img className="w-50 sm:mt-3" src={img} alt="" />
+         <div className="sm:mt-4">
+           <img className="w-50" src={img} alt="" />
          </div>
        </section>
      </>
