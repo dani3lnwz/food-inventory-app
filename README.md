@@ -1,8 +1,6 @@
-# Dream-Photography-App
+# Food Inventory App
 
-## [Live Website]()
-
-## [Live Website-2]()
+## [Live Website](https://food-inventory-app.web.app/)
 
 ### Description
  This inventory website is made with react, firebase, mongodb, express. this is a full responsive website. This website implements full CRUD operation. all buttons are functional here.
