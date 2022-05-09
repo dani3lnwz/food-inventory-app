@@ -6,22 +6,21 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const AddFood = (e) => {
-  const [user] = useAuthState(auth)
-  const {email} = user;
+  const [user] = useAuthState(auth);
+  const { email } = user;
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const url = `http://localhost:5000/food`;
-    axios.post(url, data)
-    .then(response => {
-      const {data} = response;
+    const url = `https://enigmatic-headland-05780.herokuapp.com/food`;
+    axios.post(url, data).then((response) => {
+      const { data } = response;
       console.log(data);
-      if(data.insertedId){
-        toast.success('Your Item is added')
+      if (data.insertedId) {
+        toast.success("Your Item is added");
         e.target.reset();
       }
-    })
-    
+    });
+
     // fetch(url, {
     //   method: "POST",
     //   headers: {

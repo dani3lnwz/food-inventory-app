@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-const useProducts = () =>{
-   const [products, setProducts] = useState([]);
+const useProducts = () => {
+  const [products, setProducts] = useState([]);
 
-   useEffect(() => {
-     fetch("http://localhost:5000/food")
-       .then((res) => res.json())
-       .then((data) => {
-         setProducts(data);
-       });
-   }, []);
-   return [products, setProducts]
-}
+  useEffect(() => {
+    fetch("https://enigmatic-headland-05780.herokuapp.com/food")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
+  return [products, setProducts];
+};
 
 export default useProducts;

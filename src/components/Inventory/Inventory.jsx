@@ -12,7 +12,7 @@ const Inventory = () => {
 
   useEffect(() => {
     (async () => {
-      const url = `http://localhost:5000/food/${inventoryId}`;
+      const url = `https://enigmatic-headland-05780.herokuapp.com/food/${inventoryId}`;
       try {
         const { data } = await axios.get(url);
         setFood(data);
@@ -30,7 +30,7 @@ const Inventory = () => {
       // console.log(reQuantity, quantity);
 
       // console.log(newQuantity);
-      const url = `http://localhost:5000/update/${inventoryId}`;
+      const url = `https://enigmatic-headland-05780.herokuapp.com/update/${inventoryId}`;
       try {
         const { data } = await axios.put(url, { newQuantity });
         if (data.modifiedCount === 1 || data.matchedCount === 1) {
@@ -46,7 +46,7 @@ const Inventory = () => {
   const handleDelivery = () => {
     (async () => {
       const newQuantity = { quantity };
-      const url = `http://localhost:5000/food/${inventoryId}`;
+      const url = `https://enigmatic-headland-05780.herokuapp.com/food/${inventoryId}`;
       try {
         const { data } = await axios.put(url, newQuantity);
         if (data.modifiedCount) {
