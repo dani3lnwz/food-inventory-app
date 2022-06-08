@@ -35,7 +35,7 @@ const Login = () => {
     );
   }
 
-  // if(loading || sending){
+  // if(loading){
   //   return <Loading></Loading>
   // }
 
@@ -50,8 +50,7 @@ const Login = () => {
       { email }
     );
     localStorage.setItem("accessToken", data.accessToken);
-    // event.target.reset();
-    navigate(from, { replace: true });
+    event.target.reset();
   };
 
   const resetPassword = async () => {
@@ -66,7 +65,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      // navigate(from, { replace: true });
+      navigate(from, { replace: true });
       toast.success("Yay Congratulations 🎉");
     }
   }, [user]);

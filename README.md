@@ -1,6 +1,7 @@
 # Food Inventory App
 
 ## [Live Website](https://food-inventory-app.web.app/)
+![SiteGif](/src/img/gif/foodGif.gif)
 
 ### Description
  This inventory website is made with react, firebase, mongodb, express. this is a full responsive website. This website implements full CRUD operation. all buttons are functional here.
