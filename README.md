@@ -4,6 +4,10 @@
 
 ### Description
  This inventory website is made with react, firebase, mongodb, express. this is a full responsive website. This website implements full CRUD operation. all buttons are functional here.
+* Note: Backend Code is Hosted on Heroku(Free-Hosting). So sometime products data might not load at first time, in that case please reload the page again, it will solve this issue.
+
+### [Server Side Code](https://github.com/hassanmehedi1/food-inventory-server-)
+
 
 ### Features Of My Site
 
