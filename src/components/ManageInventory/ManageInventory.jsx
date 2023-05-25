@@ -8,7 +8,7 @@ const ManageInventory = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `https://enigmatic-headland-05780.herokuapp.com/food/${id}`;
+      const url = `https://khabarchi-server-production.up.railway.app/food/${id}`;
       fetch(url, {
         method: "DELETE",
       })

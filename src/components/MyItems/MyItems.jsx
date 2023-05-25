@@ -14,7 +14,7 @@ const MyItems = () => {
   useEffect(() => {
     const getItems = async () => {
       const email = user.email;
-      const url = `https://enigmatic-headland-05780.herokuapp.com/myitem?email=${email}`;
+      const url = `https://khabarchi-server-production.up.railway.app/myitem?email=${email}`;
       const { data } = await axios.get(url, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -28,7 +28,7 @@ const MyItems = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `https://enigmatic-headland-05780.herokuapp.com/food/${id}`;
+      const url = `https://khabarchi-server-production.up.railway.app/food/${id}`;
       fetch(url, {
         method: "DELETE",
       })

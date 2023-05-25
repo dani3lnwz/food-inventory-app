@@ -11,7 +11,7 @@ const AddFood = (e) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const url = `https://enigmatic-headland-05780.herokuapp.com/food`;
+    const url = `https://khabarchi-server-production.up.railway.app/food`;
     axios.post(url, data).then((response) => {
       const { data } = response;
       console.log(data);

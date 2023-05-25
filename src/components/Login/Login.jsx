@@ -46,7 +46,7 @@ const Login = () => {
 
     await signInWithEmailAndPassword(email, password);
     const { data } = await axios.post(
-      "https://enigmatic-headland-05780.herokuapp.com/login",
+      "https://khabarchi-server-production.up.railway.app/login",
       { email }
     );
     localStorage.setItem("accessToken", data.accessToken);
