@@ -12,7 +12,7 @@ const WhyChooseUS = () => {
          <p className="text-base text-gray-700 md:text-lg">
            There maybe a lot of company like us. So you might be wondering why
            choose us among them? To answer your question here are some of our
-           points.
+           points.Ek bar khaile jibonew vhulben na
          </p>
        </div>
        <div className="grid gap-8 row-gap-5 md:row-gap-8 lg:grid-cols-3">
